@@ -11,20 +11,24 @@ p {
 h3 {
 	color: red;
     text-align: center;
+    margin-bottom: 15px;
    
 }
 
-img {
-    height:300px;
-    width: 500px;
-    margin-top: 10px;
-    
-}
+
+.center-block {
+    height:240px;
+    width:500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+ }
 
 .box {
-    border: 3px;
-    border-color: white;
-    height: 300px;
+    border: 1px solid white;
+    height: 350px;
     width: 500px;
-	padding-top: 10px;
+    padding-top: 10px;
+    margin-top: 20px
 }
