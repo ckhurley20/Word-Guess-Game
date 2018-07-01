@@ -20,11 +20,6 @@ var wordBank = [
     "Matthew Slater",
     "Rex Burkhead"];
 
-// var randomWord = wordBank[Math.floor(Math.random() * wordBank.length)];
-
-
-
-// console.log(randomWord);
 
 var wins = 0;
 var losses = 0;
