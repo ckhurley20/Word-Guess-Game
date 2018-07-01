@@ -29,59 +29,10 @@ var wordBank = [
 var wins = 0;
 var losses = 0;
 var guessesLeft = 8;
-var pickedWord = wordBank[Math.floor(Math.random() * wordBank.length)];;
 var pickedWordPlaceholderArr = [];
 var guessedLetterBank = [];
 var incorrectLetterBank = [];
 var gameRunning = false;
-
-pickedWord = wordBank[Math.floor(Math.random() * wordBank.length)];
-
-
-var userChoices =[
-    "a", "A",
-    "b", "B",
-    "c", "C",
-    "d", "D",
-    "e", "E",
-    "f", "F",
-    "g", "G",
-    "h", "H",
-    "i", "I",
-    "j", "J",
-    "k", "K",
-    "l", "L",
-    "m", "M",
-    "n", "N", 
-    "o", "O",
-    "p", "P",
-    "q", "Q",
-    "r", "R",
-    "s", "S",
-    "t", "T",
-    "u", "U",
-    "v", "V",
-    "w", "W", 
-    "x", "X",
-    "y", "Y",
-    "z", "Z",
-]
-
-var lettersGuessed = [];
-    // This function is run whenever the user presses a key.
-    document.onkeyup = function(event) {
-
-      // Determines which key was pressed.
-      var userGuess = event.key;
-
-    //   console.log(userGuess);
-
-      lettersGuessed.push(userGuess);
-
-    };
-
-    console.log(lettersGuessed);
-
 
 
 // NEW GAME FUNCTION
@@ -109,9 +60,82 @@ function newGame () {
 
     $guessesLeft.textContent = guessesLeft;
     $placeHolders.textContent = pickedWordPlaceholderArr.join(" ");
-    $lettersGuessed.textContent = incorrectLetterBank;
+    $guessedLetters.textContent = incorrectLetterBank;
 
 
 }
 
+
+
+function letterGuess(letter) {
+    console.log(letter);
+
+    if (gameRunning === true && guessedLetterBank.indexOf(letter) === -1){
+
+        guessedLetterBank.push(letter);
+
+        for (var i = 0; i < pickedWord.length; i++) {
+            if (pickedWord[i].toLowerCase() === letter.toLowerCase()) {
+                pickedWordPlaceholderArr[i] = pickedWord[i];
+            }
+        }
+
+        $placeHolders.textContent = pickedWordPlaceholderArr.join("");
+        checkIncorrect(letter);
+    }
+
+    else {
+        if (!gameRunning) {
+            alert("Click the Start a New Game Button");
+        }
+        else {
+            alert("Try a Different Letter");
+        }
+    }
+}
+
+
+function checkIncorrect(letter) {
+    if (
+        pickedWordPlaceholderArr.indexOf(letter.toLowerCase()) === -1 
+        && 
+        pickedWordPlaceholderArr.indexOf(letter.toUpperCase()) === -1
+    ) {
+        guessesLeft--;
+        incorrectLetterBank.push(letter);
+        $guessedLetters.textContent = incorrectLetterBank.join(" ");
+        $guessesLeft.textContent = guessesLeft;
+    }
+    checkLoss();
+}
+
+// CHECK FOR LOSS
+function checkLoss(){
+    if (guessesLeft === 0) {
+        losses++;
+        gameRunning = false;
+        $numLosses.textContent = losses;
+        alert("You Lost! Try Again");
+    }
+    checkWin();
+}
+
+//  CHECK FOR WIN
+function checkWin() {
+    if(pickedWord.toLowerCase() === pickedWordPlaceholderArr.join("").toLowerCase()) {
+        wins++;
+        gameRunning = false;
+        $numWins.textContent = wins;
+        alert("You Won! Click Start a New Game Button");
+    }
+}
+
+
+
 $newGameButton.addEventListener("click", newGame);
+
+document.onkeyup = function(event) {
+    if (event.keyCode >= 65 && event.keyCode <= 90) {
+        letterGuess(event.key);
+    }
+}
