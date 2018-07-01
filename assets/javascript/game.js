@@ -115,6 +115,7 @@ function checkLoss(){
         losses++;
         gameRunning = false;
         $numLosses.textContent = losses;
+        $placeHolders.textContent = pickedWord;
         alert("You Lost! Try Again");
     }
     checkWin();
