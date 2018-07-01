@@ -28,7 +28,7 @@ h3 {
 
 .box {
     border: 1px solid white;
-    height: 350px;
+    height: 250px;
     width: 500px;
     padding-top: 10px;
     margin-top: 20px;
@@ -46,10 +46,10 @@ h3 {
 
 #num-wins,
 #num-losses,
-#current-word,
+#place-holders,
 #letters-guessed,
 #guesses-remaining {
     font-style: italic;
     color: red;
-    font-size: 16px;
+    font-size: 20px;
 }

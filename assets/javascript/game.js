@@ -1,3 +1,10 @@
+var placeHolders = document.getElementById("#place-holders")
+var lettersGuessed = document.getElementById("#letters-guessed")
+var numWins = document.getElementById("#num-wins")
+var numLosses = document.getElementById("#num-losses")
+var guessesRemaining = document.getElementById("#guesses-remaining")
+
+
 var wordBank = [
     "Tom Brady", 
     "Julian Edelman", 
