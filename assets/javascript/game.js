@@ -14,9 +14,12 @@ var wordBank = [
 
 var randomWord = wordBank[Math.floor(Math.random() * wordBank.length)];
 
-console.log(randomWord);
+// console.log(randomWord);
 
-var userGuess =[
+var wins = 0;
+var losses = 0;
+
+var userChoices =[
     "a", "A",
     "b", "B",
     "c", "C",
@@ -45,3 +48,19 @@ var userGuess =[
     "z", "Z",
 ]
 
+var lettersGuessed = [];
+    // This function is run whenever the user presses a key.
+    document.onkeyup = function(event) {
+
+      // Determines which key was pressed.
+      var userGuess = event.key;
+
+    //   console.log(userGuess);
+
+      lettersGuessed.push(userGuess);
+
+    };
+
+    console.log(lettersGuessed);
+
+    
