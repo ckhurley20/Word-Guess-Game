@@ -47,9 +47,21 @@ h3 {
 #num-wins,
 #num-losses,
 #place-holders,
-#letters-guessed,
-#guesses-remaining {
+#guessed-letters,
+#guesses-left {
     font-style: italic;
     color: red;
     font-size: 20px;
 }
+
+#new-game-button {
+    align-content: center;
+    display: block;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* #place-holders {
+    letter-spacing: 6px;
+    font-size: 22px;
+} */
