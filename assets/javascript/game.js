@@ -9,10 +9,12 @@ var wordBank = [
     "Stephon Gilmore", 
     "Patrick Chung", 
     "Devin McCourty",
-    "Matthew Slater"
+    "Matthew Slater",
     "Rex Burkhead"];
 
 var randomWord = wordBank[Math.floor(Math.random() * wordBank.length)];
+
+console.log(randomWord);
 
 var userGuess =[
     "a", "A",
