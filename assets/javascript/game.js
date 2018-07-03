@@ -54,7 +54,7 @@ function newGame () {
     }
 
     $guessesLeft.textContent = guessesLeft;
-    $placeHolders.textContent = pickedWordPlaceholderArr.join(" ");
+    $placeHolders.textContent = pickedWordPlaceholderArr.join("");
     $guessedLetters.textContent = incorrectLetterBank;
 
 
